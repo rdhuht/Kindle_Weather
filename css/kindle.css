@@ -16,13 +16,13 @@ html, body {
 }
 
 :root {
-    --base-size: min(2vh, 2vw);
-    --city-size: calc(3 * var(--base-size));
-    --temp-size: calc(8 * var(--base-size));
-    --time-size: calc(15 * var(--base-size));
-    --desc-size: calc(3 * var(--base-size));
-    --icon-size: calc(6 * var(--base-size));
-    --forecast-size: calc(4 * var(--base-size));
+    --base-size: min(2.5vh, 2.5vw);
+    --city-size: calc(2.8 * var(--base-size));
+    --temp-size: calc(7 * var(--base-size));
+    --time-size: calc(12 * var(--base-size));
+    --desc-size: calc(2.5 * var(--base-size));
+    --icon-size: calc(5 * var(--base-size));
+    --forecast-size: calc(3.5 * var(--base-size));
 }
 
 a {
@@ -116,10 +116,10 @@ html.night {
     position: relative;
     left: 0;
     top: 22%;
-    height: calc(25 * var(--base-size));
-    border-top: calc(0.3 * var(--base-size)) solid black;
-    border-bottom: calc(0.3 * var(--base-size)) solid black;
-    margin-bottom: calc(2 * var(--base-size));
+    height: calc(22 * var(--base-size));
+    border-top: calc(0.25 * var(--base-size)) solid black;
+    border-bottom: calc(0.25 * var(--base-size)) solid black;
+    margin-bottom: calc(1.5 * var(--base-size));
     display: flex;
     justify-content: space-between;
     align-items: center;
@@ -145,13 +145,14 @@ html.night {
 
 .colDesc {
     top: -2%;
-    font-size: calc(1.8 * var(--base-size));
+    font-size: calc(1.6 * var(--base-size));
     position: relative;
     bottom: -10%;
     white-space: nowrap;
     overflow: hidden;
     text-overflow: ellipsis;
     width: 100%;
+    line-height: 1.2;
 }
 
 .night .col {
@@ -167,10 +168,11 @@ html.night {
     top: 80%;
     left: 50%;
     transform: translate(-50%, -50%);
-    font-size: calc(3.5 * var(--base-size));
+    font-size: calc(3 * var(--base-size));
     text-align: center;
     width: 100%;
     z-index: 2;
+    line-height: 1.3;
 }
 
 #sun {
@@ -193,25 +195,26 @@ html.night {
     position: relative;
     top: 3%;
     left: 0;
-    font-size: calc(5 * var(--base-size));
-    margin: calc(0.5 * var(--base-size)) 0;
+    font-size: calc(4.2 * var(--base-size));
+    margin: calc(0.4 * var(--base-size)) 0;
 }
 
 .colTemp {
     position: relative;
-    font-size: calc(3.5 * var(--base-size));
-    margin: calc(0.5 * var(--base-size)) 0;
-    font-size: calc(2.5 * var(--base-size));
-    font-weight:bolder;
+    font-size: calc(2.2 * var(--base-size));
+    margin: calc(0.4 * var(--base-size)) 0;
+    font-weight: bolder;
+    line-height: 1.2;
 }
 
 .colTime {
     position: relative;
-    font-size: var(--forecast-size);
-    left:3%;
+    font-size: calc(0.9 * var(--forecast-size));
+    left: 3%;
     font-weight: bolder;
     text-align: center;
     font-family: electronicFont;
+    line-height: 1.2;
 }
 
 .colDesc {
