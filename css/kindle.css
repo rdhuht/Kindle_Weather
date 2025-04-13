@@ -1,0 +1,252 @@
+@font-face {
+    font-family: electronicFont;
+    src: url("./solari-departures.ttf")
+}
+
+@font-face {
+    font-family: DigFont;
+    src: url("./neat-lcd.ttf")
+}
+html, body {
+    height: 100%;
+    margin: 0;
+    padding: 0;
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 0;
+}
+
+a {
+    color: #000000;
+    background: #ffffff;
+}
+
+.night a {
+    color: #ffffff;
+    background: #000000;
+}
+
+html.night {
+    color: #ffffff;
+    background: #000000;
+}
+
+#cleaner {
+    position: absolute;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    display: none;
+}
+
+#page {
+    position: relative;
+    height: 100%;
+    overflow: hidden;
+}
+
+#city {
+    font-size: 7rem;
+    position: absolute;
+    top: 0%;
+    right: 1%;
+    text-decoration: none;
+    text-align: right;
+}
+
+#temp {
+    position: absolute;
+    top: 7%;
+    right: 0%;
+    font-size: 22rem;
+    font-weight: bolder;
+    text-align: right;
+    font-family: electronicFont; /* Use the DigFont for the temperature display */
+}
+
+.tempWrapper {
+    /* to align with the city */
+}
+
+#lastUpdate {
+    position: relative;
+    top: 24%;
+    left: 2%;
+    font-size: 40rem;
+    font-weight: bolder;
+    text-align: center;
+    font-family: electronicFont;
+}
+
+#description {
+    position: absolute;
+    top: 1%;
+    left: 1%;
+    font-size: 6rem;
+    font-weight: bolder;
+    text-align: left;
+}
+
+#icon {
+    position:absolute;
+    top: 11%;
+    left: 2%;
+    height: 20rem;
+    width: 20rem;
+    font-size: 18rem;    
+}
+
+#iconWrapper {
+    
+}
+
+.forecast {
+    position: relative;
+    left: 0;
+    top: 17%;
+    height: 32rem;
+    border-top: 5px solid black;
+    border-bottom: 5px solid black;
+}
+
+.night .forecast {
+    border-color: #ffffff;
+}
+
+.col {
+    width: 24.5%;
+    border-right: 1px solid black;
+    float: left;
+    text-align: center;
+    height: 100%;
+    overflow: hidden;
+}
+
+.night .col {
+    border-color: #ffffff;
+}
+
+.col:last-child {
+    border-right: none;
+}
+
+#date {
+    position: absolute;
+    bottom: 46%;
+    left: 3.3%;
+    font-size: 50px;
+    font-size: 7rem;
+}
+
+#sun {
+    position: absolute;
+    bottom: -0.5rem;
+    left: 3%;
+    font-size: 5rem;
+    font-weight:bolder;
+}
+
+.forecastIconWrapper {
+    position: relative;
+    top: 3%;
+    left: 5%;
+    font-size: 12rem;
+
+}
+
+.colTemp {
+    position: relative;
+    top: -2%;
+    font-size: 4rem;
+    font-weight:bolder;
+}
+
+.colTime {
+    position: relative;
+    font-size: 10rem;
+    left:3%;
+    font-weight: bolder;
+    text-align: center;
+    font-family: electronicFont;
+}
+
+.colDesc {
+    top: -2%;
+    font-size: 4rem;
+    position: relative;
+    bottom: -10%;
+}
+
+.portrait .col:nth-last-child(2) {
+    border-right: none;
+}
+
+.portrait .col5 {
+    display: none;
+}
+
+.landscape #city {
+    font-size: 7rem;
+}
+
+.landscape #temp {
+    font-size: 80px;
+    font-weight: bolder;
+    text-align: right;
+}
+
+.landscape #lastUpdate {
+    
+    
+}
+
+.landscape #description {
+    font-size: 35.4px;
+    font-size: 6rem;
+}
+
+.landscape #icon {
+    font-size: 100px;
+    font-size: 25rem;
+}
+.landscape #date {
+    font-size: 35.4px;
+    font-size: 7rem;
+}
+
+.landscape #sun {
+    font-size: 24px;
+    font-size: 4rem;
+}
+
+.landscape .forecastIconWrapper {
+    font-size: 71.9px;
+    font-size: 14.2rem;
+}
+
+.landscape .colTemp {
+    font-size: 35.9px;
+    font-size: 7.1rem;
+}
+
+.landscape .colTime {
+    font-size: 120px;
+    font-weight: bolder;
+    font-family: electronicFont;
+}
+
+.landscape .colDesc {
+    top: 1%;
+    font-size: 14.2px;
+    font-size: 2.8rem;
+}
+
+.landscape .col {
+    width: 19.5%;
+}
+
+.feelsLike, .feelsLike * {
+    font-size: 4rem;
+    font-weight: bolder;
+    text-align: center;
+}
