@@ -1,67 +1,115 @@
-:root {
-    --base-size: min(2vw, 16px);
-    --time-size: calc(8 * var(--base-size));
-    --desc-size: calc(4 * var(--base-size));
-    --icon-size: calc(12 * var(--base-size));
-    --forecast-size: calc(3 * var(--base-size));
+@font-face {
+    font-family: electronicFont;
+    src: url("./solari-departures.ttf")
 }
 
-body {
+@font-face {
+    font-family: DigFont;
+    src: url("./neat-lcd.ttf")
+}
+html, body {
+    height: 100%;
     margin: 0;
     padding: 0;
-    width: 100vw;
-    height: 100vh;
-    overflow: hidden;
-    font-size: var(--base-size);
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 16px;
 }
 
-.container {
-    width: 100%;
-    height: 100%;
+:root {
+    --base-size: min(2vh, 2vw);
+    --city-size: calc(3 * var(--base-size));
+    --temp-size: calc(8 * var(--base-size));
+    --time-size: calc(15 * var(--base-size));
+    --desc-size: calc(3 * var(--base-size));
+    --icon-size: calc(6 * var(--base-size));
+    --forecast-size: calc(4 * var(--base-size));
+}
+
+a {
+    color: #000000;
+    background: #ffffff;
+}
+
+.night a {
+    color: #ffffff;
+    background: #000000;
+}
+
+html.night {
+    color: #ffffff;
+    background: #000000;
+}
+
+#cleaner {
+    position: absolute;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    display: none;
+}
+
+#page {
     position: relative;
+    height: 100%;
+    overflow: hidden;
 }
 
 #city {
+    font-size: var(--city-size);
     position: absolute;
-    top: 1%;
+    top: 0%;
     right: 1%;
-    font-size: calc(5 * var(--base-size));
-    font-weight: bolder;
+    text-decoration: none;
     text-align: right;
 }
 
 #temp {
     position: absolute;
-    top: 8%;
-    right: 1%;
-    font-size: calc(6 * var(--base-size));
+    top: 7%;
+    right: 0%;
+    font-size: var(--temp-size);
     font-weight: bolder;
     text-align: right;
+    font-family: electronicFont;
+}
+
+.tempWrapper {
+    /* to align with the city */
 }
 
 #lastUpdate {
-    position: absolute;
-    top: 18%;
+    position: relative;
+    top: 20%;
+    left: 0;
     right: 0;
-    font-size: calc(3 * var(--base-size));
+    font-size: var(--time-size);
     font-weight: bolder;
     text-align: center;
     font-family: electronicFont;
+    z-index: 1;
 }
 
 #description {
     position: absolute;
     top: 1%;
     left: 1%;
-    font-size: calc(4 * var(--base-size));
+    font-size: var(--desc-size);
     font-weight: bolder;
+    text-align: left;
 }
 
 #icon {
-    position: absolute;
+    position:absolute;
     top: 11%;
     left: 2%;
-    font-size: calc(12 * var(--base-size));
+    height: var(--icon-size);
+    width: var(--icon-size);
+    font-size: var(--icon-size);    
+}
+
+#iconWrapper {
+    
 }
 
 .forecast {
@@ -75,6 +123,7 @@ body {
     display: flex;
     justify-content: space-between;
     align-items: center;
+    z-index: 0;
 }
 
 .night .forecast {
@@ -94,6 +143,21 @@ body {
     justify-content: space-between;
 }
 
+.colDesc {
+    top: -2%;
+    font-size: calc(1.8 * var(--base-size));
+    position: relative;
+    bottom: -10%;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    width: 100%;
+}
+
+.night .col {
+    border-color: #ffffff;
+}
+
 .col:last-child {
     border-right: none;
 }
@@ -103,9 +167,10 @@ body {
     top: 80%;
     left: 50%;
     transform: translate(-50%, -50%);
-    font-size: calc(4 * var(--base-size));
+    font-size: calc(3.5 * var(--base-size));
     text-align: center;
     width: 100%;
+    z-index: 2;
 }
 
 #sun {
@@ -113,19 +178,22 @@ body {
     top: 25%;
     left: 50%;
     transform: translateX(-50%);
-    font-size: calc(3 * var(--base-size));
+    font-size: calc(2.5 * var(--base-size));
     font-weight: bolder;
+    z-index: 1;
     white-space: nowrap;
     overflow: hidden;
     text-overflow: ellipsis;
     width: 90%;
     margin-top: calc(2 * var(--base-size));
+    display: block;
 }
 
 .forecastIconWrapper {
     position: relative;
     top: 3%;
-    font-size: calc(6 * var(--base-size));
+    left: 0;
+    font-size: calc(5 * var(--base-size));
     margin: calc(0.5 * var(--base-size)) 0;
 }
 
@@ -133,93 +201,92 @@ body {
     position: relative;
     font-size: calc(3.5 * var(--base-size));
     margin: calc(0.5 * var(--base-size)) 0;
-    font-weight: bolder;
+    font-size: calc(2.5 * var(--base-size));
+    font-weight:bolder;
 }
 
 .colTime {
     position: relative;
-    font-size: calc(3 * var(--base-size));
+    font-size: var(--forecast-size);
+    left:3%;
     font-weight: bolder;
     text-align: center;
     font-family: electronicFont;
 }
 
 .colDesc {
-    font-size: calc(2.5 * var(--base-size));
+    top: -2%;
+    font-size: calc(2 * var(--base-size));
     position: relative;
-    white-space: nowrap;
-    overflow: hidden;
-    text-overflow: ellipsis;
-    width: 100%;
+    bottom: -10%;
 }
 
-.feelsLike, .feelsLike * {
-    font-size: calc(4 * var(--base-size));
-    font-weight: bolder;
-    text-align: center;
+.portrait .col:nth-last-child(2) {
+    border-right: none;
 }
 
-/* Kindle设备适配 */
-@media screen and (max-width: 800px) {
-    :root {
-        --base-size: min(3vw, 20px);
-    }
+.portrait .col5 {
+    display: none;
 }
 
-@media screen and (max-width: 600px) {
-    :root {
-        --base-size: min(4vw, 24px);
-    }
-    
-    .forecast {
-        height: calc(30 * var(--base-size));
-    }
-    
-    .colDesc {
-        font-size: calc(2 * var(--base-size));
-    }
-}
-
-/* 横屏模式 */
 .landscape #city {
-    font-size: calc(6 * var(--base-size));
+    font-size: 7rem;
 }
 
 .landscape #temp {
-    font-size: calc(7 * var(--base-size));
+    font-size: 80px;
+    font-weight: bolder;
+    text-align: right;
+}
+
+.landscape #lastUpdate {
+    
+    
 }
 
 .landscape #description {
-    font-size: calc(5 * var(--base-size));
+    font-size: 35.4px;
+    font-size: 6rem;
 }
 
 .landscape #icon {
-    font-size: calc(14 * var(--base-size));
+    font-size: 100px;
+    font-size: 25rem;
 }
-
 .landscape #date {
-    font-size: calc(5 * var(--base-size));
+    font-size: 35.4px;
+    font-size: 7rem;
 }
 
 .landscape #sun {
-    font-size: calc(3.5 * var(--base-size));
+    font-size: 24px;
+    font-size: 4rem;
+    position: relative;
     top: 30%;
+    margin-top: 2rem;
+    z-index: 3;
 }
 
 .landscape .forecastIconWrapper {
-    font-size: calc(7 * var(--base-size));
+    font-size: 71.9px;
+    font-size: 14.2rem;
 }
 
 .landscape .colTemp {
-    font-size: calc(4 * var(--base-size));
+    font-size: 35.9px;
+    font-size: 7.1rem;
 }
 
 .landscape .colTime {
-    font-size: calc(3.5 * var(--base-size));
+    font-size: 120px;
+    font-weight: bolder;
+    font-family: electronicFont;
 }
 
 .landscape .colDesc {
-    font-size: calc(2.5 * var(--base-size));
+    top: 1%;
+    font-size: 14.2px;
+    font-size: 2.8rem;
 }
 
 .landscape .col {
@@ -228,6 +295,63 @@ body {
 }
 
 .landscape .forecast {
-    height: calc(22 * var(--base-size));
+    height: calc(20 * var(--base-size));
     margin-bottom: calc(4 * var(--base-size));
+}
+
+.landscape .colTime {
+    font-size: calc(4 * var(--base-size));
+}
+
+.feelsLike, .feelsLike * {
+    font-size: 4rem;
+    font-weight: bolder;
+    text-align: center;
+}
+
+/* 添加适配不同 Kindle 设备的样式 */
+@media screen and (max-width: 600px) {
+    body {
+        zoom: 0.8;
+        -moz-transform: scale(0.8);
+        -moz-transform-origin: 0 0;
+    }
+}
+
+@media screen and (max-width: 800px) {
+    body {
+        zoom: 0.9;
+        -moz-transform: scale(0.9);
+        -moz-transform-origin: 0 0;
+    }
+}
+
+/* 基础样式优化 */
+body {
+    margin: 0;
+    padding: 0;
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+}
+
+.container {
+    width: 100%;
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+/* 确保文字大小可缩放 */
+.weather-info {
+    font-size: calc(16px + 1vw);
+}
+
+.temperature {
+    font-size: calc(20px + 1.5vw);
+}
+
+.date-time {
+    font-size: calc(14px + 0.8vw);
 }
