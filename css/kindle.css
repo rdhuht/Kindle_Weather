@@ -12,7 +12,17 @@ html, body {
     margin: 0;
     padding: 0;
     font-family: Arial, Helvetica, sans-serif;
-    font-size: 0;
+    font-size: 16px;
+}
+
+:root {
+    --base-size: min(2vh, 2vw);
+    --city-size: calc(3 * var(--base-size));
+    --temp-size: calc(8 * var(--base-size));
+    --time-size: calc(15 * var(--base-size));
+    --desc-size: calc(2.5 * var(--base-size));
+    --icon-size: calc(8 * var(--base-size));
+    --forecast-size: calc(4 * var(--base-size));
 }
 
 a {
@@ -46,7 +56,7 @@ html.night {
 }
 
 #city {
-    font-size: 7rem;
+    font-size: var(--city-size);
     position: absolute;
     top: 0%;
     right: 1%;
@@ -58,10 +68,10 @@ html.night {
     position: absolute;
     top: 7%;
     right: 0%;
-    font-size: 22rem;
+    font-size: var(--temp-size);
     font-weight: bolder;
     text-align: right;
-    font-family: electronicFont; /* Use the DigFont for the temperature display */
+    font-family: electronicFont;
 }
 
 .tempWrapper {
@@ -70,19 +80,21 @@ html.night {
 
 #lastUpdate {
     position: relative;
-    top: 24%;
-    left: 2%;
-    font-size: 40rem;
+    top: 20%;
+    left: 0;
+    right: 0;
+    font-size: var(--time-size);
     font-weight: bolder;
     text-align: center;
     font-family: electronicFont;
+    z-index: 1;
 }
 
 #description {
     position: absolute;
     top: 1%;
     left: 1%;
-    font-size: 6rem;
+    font-size: var(--desc-size);
     font-weight: bolder;
     text-align: left;
 }
@@ -91,9 +103,9 @@ html.night {
     position:absolute;
     top: 11%;
     left: 2%;
-    height: 20rem;
-    width: 20rem;
-    font-size: 18rem;    
+    height: var(--icon-size);
+    width: var(--icon-size);
+    font-size: var(--icon-size);    
 }
 
 #iconWrapper {
@@ -103,10 +115,15 @@ html.night {
 .forecast {
     position: relative;
     left: 0;
-    top: 17%;
-    height: 32rem;
-    border-top: 5px solid black;
-    border-bottom: 5px solid black;
+    top: 22%;
+    height: calc(25 * var(--base-size));
+    border-top: calc(0.3 * var(--base-size)) solid black;
+    border-bottom: calc(0.3 * var(--base-size)) solid black;
+    margin-bottom: calc(2 * var(--base-size));
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    z-index: 0;
 }
 
 .night .forecast {
@@ -116,10 +133,14 @@ html.night {
 .col {
     width: 24.5%;
     border-right: 1px solid black;
-    float: left;
     text-align: center;
     height: 100%;
-    overflow: hidden;
+    overflow: visible;
+    padding: calc(1 * var(--base-size));
+    box-sizing: border-box;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
 }
 
 .night .col {
@@ -134,36 +155,37 @@ html.night {
     position: absolute;
     bottom: 46%;
     left: 3.3%;
-    font-size: 50px;
-    font-size: 7rem;
+    font-size: calc(3.5 * var(--base-size));
 }
 
 #sun {
     position: absolute;
-    bottom: -0.5rem;
+    bottom: 5%;
     left: 3%;
-    font-size: 5rem;
-    font-weight:bolder;
+    font-size: calc(2.5 * var(--base-size));
+    font-weight: bolder;
+    z-index: 1;
 }
 
 .forecastIconWrapper {
     position: relative;
     top: 3%;
-    left: 5%;
-    font-size: 12rem;
-
+    left: 0;
+    font-size: calc(8 * var(--base-size));
+    margin: calc(0.5 * var(--base-size)) 0;
 }
 
 .colTemp {
     position: relative;
-    top: -2%;
-    font-size: 4rem;
+    font-size: calc(3.5 * var(--base-size));
+    margin: calc(0.5 * var(--base-size)) 0;
+    font-size: calc(2.5 * var(--base-size));
     font-weight:bolder;
 }
 
 .colTime {
     position: relative;
-    font-size: 10rem;
+    font-size: var(--forecast-size);
     left:3%;
     font-weight: bolder;
     text-align: center;
@@ -172,7 +194,7 @@ html.night {
 
 .colDesc {
     top: -2%;
-    font-size: 4rem;
+    font-size: calc(2 * var(--base-size));
     position: relative;
     bottom: -10%;
 }
