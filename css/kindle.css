@@ -135,12 +135,23 @@ html.night {
     border-right: 1px solid black;
     text-align: center;
     height: 100%;
-    overflow: visible;
+    overflow: hidden;
     padding: calc(1 * var(--base-size));
     box-sizing: border-box;
     display: flex;
     flex-direction: column;
     justify-content: space-between;
+}
+
+.colDesc {
+    top: -2%;
+    font-size: calc(1.8 * var(--base-size));
+    position: relative;
+    bottom: -10%;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    width: 100%;
 }
 
 .night .col {
@@ -152,26 +163,37 @@ html.night {
 }
 
 #date {
-    position: absolute;
-    bottom: 46%;
-    left: 3.3%;
+    position: relative;
+    top: 80%;
+    left: 50%;
+    transform: translate(-50%, -50%);
     font-size: calc(3.5 * var(--base-size));
+    text-align: center;
+    width: 100%;
+    z-index: 2;
 }
 
 #sun {
-    position: absolute;
-    bottom: 5%;
-    left: 3%;
+    position: relative;
+    top: 25%;
+    left: 50%;
+    transform: translateX(-50%);
     font-size: calc(2.5 * var(--base-size));
     font-weight: bolder;
     z-index: 1;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    width: 90%;
+    margin-top: calc(2 * var(--base-size));
+    display: block;
 }
 
 .forecastIconWrapper {
     position: relative;
     top: 3%;
     left: 0;
-    font-size: calc(8 * var(--base-size));
+    font-size: calc(5 * var(--base-size));
     margin: calc(0.5 * var(--base-size)) 0;
 }
 
@@ -239,6 +261,10 @@ html.night {
 .landscape #sun {
     font-size: 24px;
     font-size: 4rem;
+    position: relative;
+    top: 30%;
+    margin-top: 2rem;
+    z-index: 3;
 }
 
 .landscape .forecastIconWrapper {
@@ -264,7 +290,17 @@ html.night {
 }
 
 .landscape .col {
-    width: 19.5%;
+    width: 19%;
+    padding: calc(0.5 * var(--base-size));
+}
+
+.landscape .forecast {
+    height: calc(20 * var(--base-size));
+    margin-bottom: calc(4 * var(--base-size));
+}
+
+.landscape .colTime {
+    font-size: calc(4 * var(--base-size));
 }
 
 .feelsLike, .feelsLike * {
